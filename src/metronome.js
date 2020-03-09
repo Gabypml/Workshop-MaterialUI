@@ -6,6 +6,8 @@ import soundFile2 from "./assets/click2.wav";
 import play from "./assets/play.png";
 import pause from "./assets/pause.png";
 
+
+
 const Metronome = () => {
   const [beat, setBeat] = useState(100);
   const [playing, setPlaying] = useState(false);
