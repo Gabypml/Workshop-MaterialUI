@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import useInterval from "./useInterval";
+import Button from '@material-ui/core/Button';
 
 import soundFile1 from "./assets/click1.wav";
 import soundFile2 from "./assets/click2.wav";
 import play from "./assets/play.png";
 import pause from "./assets/pause.png";
+
 
 const Metronome = () => {
   const [beat, setBeat] = useState(100);
@@ -86,28 +88,28 @@ const Metronome = () => {
       </button>
       <div className="bpm-measure">
         <h4>Mesure : </h4>
-        <button
+        <Button
           onClick={e => {
             handlePulse(e, 2);
           }}
         >
           2
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={e => {
             handlePulse(e, 3);
           }}
         >
           3
-        </button>
-        <button
+        </Button>
+        <Button
           className="active"
           onClick={e => {
             handlePulse(e, 4);
           }}
         >
           4
-        </button>
+        </Button>
       </div>
     </div>
   );
