@@ -3,22 +3,43 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
-import VolumeDown from '@material-ui/icons/VolumeDown';
-import VolumeUp from '@material-ui/icons/VolumeUp';
+import RemoveIcon from '@material-ui/icons/Remove';
+import AddIcon from '@material-ui/icons/Add';
 
 const useStyles = makeStyles({
   root: {
-    width: 200,
+    width: 400,
   },
 });
 
-export default function ContinuousSlider() {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(30);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+const Metronome = () => {
+    const [beat, setBeat] = useState(100);
+    const [playing, setPlaying] = useState(false);
+    const [measure, setMeasure] = useState({
+      count: 0,
+      pulse: 4
+    });
+const handleSlider = e => {
+    setMeasure({ count: 0, pulse: measure.pulse });
+    setBeat(+e.target.value);
   };
+  const handleMinus = () => {
+    setMeasure({ count: 0, pulse: measure.pulse });
+    setBeat(beat - 1);
+  };
+  const handlePlus = () => {
+    setMeasure({ count: 0, pulse: measure.pulse });
+    setBeat(beat + 1);
+  };
+}
+
+// export default function ContinuousSlider() {
+//   const classes = useStyles();
+//   const [value, setValue] = React.useState(30);
+
+//   const handleChange = (event, newValue) => {
+//     setValue(newValue);
+//   };
 
   return (
     <div className={classes.root}>
@@ -27,16 +48,15 @@ export default function ContinuousSlider() {
       </Typography>
       <Grid container spacing={2}>
         <Grid item>
-          <VolumeDown />
+          <RemoveIcon />
         </Grid>
         <Grid item xs>
-          <Slider value={value} onChange={handleChange} aria-labelledby="continuous-slider" />
+          <Slider value={value} onChange={handleSlider} aria-labelledby="continuous-slider" />
         </Grid>
         <Grid item>
-          <VolumeUp />
+          <AddIcon />
         </Grid>
       </Grid>
       <Slider disabled defaultValue={30} aria-labelledby="continuous-slider" />
     </div>
   );
-}

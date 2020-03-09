@@ -6,7 +6,7 @@ import soundFile2 from "./assets/click2.wav";
 import play from "./assets/play.png";
 import pause from "./assets/pause.png";
 
-
+import Slider from './Slider';
 
 const Metronome = () => {
   const [beat, setBeat] = useState(100);
@@ -74,7 +74,7 @@ const Metronome = () => {
       <h3>{beat} BPM</h3>
       <div className="bpm-slider">
         <button onClick={handleMinus}>-</button>
-        <input
+        <Slider
           type="range"
           min="60"
           max="240"
