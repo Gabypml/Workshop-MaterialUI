@@ -19,14 +19,17 @@ const Metronome = () => {
       count: 0,
       pulse: 4
     });
+
 const handleSlider = e => {
     setMeasure({ count: 0, pulse: measure.pulse });
     setBeat(+e.target.value);
   };
+
   const handleMinus = () => {
     setMeasure({ count: 0, pulse: measure.pulse });
     setBeat(beat - 1);
   };
+
   const handlePlus = () => {
     setMeasure({ count: 0, pulse: measure.pulse });
     setBeat(beat + 1);
@@ -43,15 +46,12 @@ const handleSlider = e => {
 
   return (
     <div className={classes.root}>
-      <Typography id="continuous-slider" gutterBottom>
-        Volume
-      </Typography>
       <Grid container spacing={2}>
         <Grid item>
           <RemoveIcon />
         </Grid>
         <Grid item xs>
-          <Slider value={value} onChange={handleSlider} aria-labelledby="continuous-slider" />
+          <Slider min ="60" max="240" value={beat} aria-labelledby="continuous-slider" />
         </Grid>
         <Grid item>
           <AddIcon />
