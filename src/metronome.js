@@ -4,6 +4,7 @@ import useInterval from "./useInterval";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { sizing } from '@material-ui/system'
 import blue from "@material-ui/core/colors/blue";
 
 import soundFile1 from "./assets/click1.wav";
@@ -86,9 +87,9 @@ const Metronome = () => {
         />
         <button onClick={handlePlus}>+</button>
       </div>
-      <button onClick={startStop}>
-        <img src={playing ? pause : play} alt="play/pause"></img>
-      </button>
+      <Button onClick={startStop}>
+        <img src={playing ? pause : play} style={{maxWidth: '70px', maxHeight: '70px', minWidth: '70px', minHeight: '70px'}} alt="play/pause"></img>
+      </Button>
       <div>
         <h4>Mesure : </h4>
 
