@@ -1,16 +1,16 @@
 # Workshop sur Material UI
+Dans ce workshop, nous allons effectuer avec vous un petit exercice de stylisation d'un workshop déjà présenté par 
+[Denis](https://github.com/Debourgeo), [Térence](https://github.com/terencehecq) et [Loïc](https://github.com/LoicLissens). Nous allons effectivement reprendre leur métronome et utiliser Material UI pour changer son apparence. 
 
-## 1. Installation de Material UI 
-Pour pouvoir utiliser Material UI, il vous faut l'installer sur votre ordinateur. Pour ce faire, rien de plus simple. 
-- Aller dans le Terminal de votre ordinateur
-- Taper la commande `npm install @material-ui/core`
+## Table des matières
+1. [Installation](#setup)
+2. [Stylisation d'App.js](#app)
+3. [Stylisation du métronome](#metronome)
+4. [Stylisation de systemspec](#systemspec)
 
-Il vous faut aussi installer les icônes de Material UI:
-- Taper la commande `npm install @material-ui/icons`
+### 2. Stylisation d'App.js <a name="app"></a>
 
-## 2. Stylisation d'App.js
+### 3. Stylisation Metronome.js <a name="metronome"></a>
 
-## 3. Stylisation Metronome.js
-
-## 4. Stylisation SystemSpec.js
+### 4. Stylisation SystemSpec.js <a name="systemspec"></a>
 
