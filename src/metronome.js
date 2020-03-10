@@ -73,22 +73,23 @@ const Metronome = () => {
   }, 60000 / beat);
 
   return (
-    <div className="metronome">
+    <div>
       <h3>{beat} BPM</h3>
-      <div className="bpm-slider">
-        <Fab color="primary" aria-label="remove">
-          <RemoveIcon onClick={handleMinus}/>
-        </Fab>
-        <Slider />
-        <Fab color="primary" aria-label="add">
-          <AddIcon onClick={handlePlus}/>
-        </Fab>
-        
+      <div>
+        <button onClick={handleMinus}>-</button>
+        <input
+          type="range"
+          min="60"
+          max="240"
+          value={beat}
+          onChange={handleSlider}
+        />
+        <button onClick={handlePlus}>+</button>
       </div>
-      <button className="startStop" onClick={startStop}>
+      <button onClick={startStop}>
         <img src={playing ? pause : play} alt="play/pause"></img>
       </button>
-      <div className="bpm-measure">
+      <div>
         <h4>Mesure : </h4>
         <button
           onClick={e => {
@@ -105,7 +106,6 @@ const Metronome = () => {
           3
         </button>
         <button
-          className="active"
           onClick={e => {
             handlePulse(e, 4);
           }}

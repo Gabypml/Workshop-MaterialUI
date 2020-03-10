@@ -2,7 +2,7 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const isDev = require("electron-is-dev");
-require("electron-reload")(__dirname);
+const os = require("os");
 
 //! Keep a global reference of the window object, if you don't, the window will
 //! be closed automatically when the JavaScript object is garbage collected.
@@ -22,11 +22,27 @@ function createWindow() {
     }
   });
 
-  mainWindow.loadURL(isDev ? "http://localhost:3000" : `file://${path.join(__dirname, "../build/index.html")}`);
+  mainWindow.loadURL(
+    isDev
+      ? "http://localhost:3000"
+      : `file://${path.join(__dirname, "../build/index.html")}`
+  );
 
   //? Closed window event
   mainWindow.on("closed", function() {
     mainWindow = null;
+  });
+}
+function sendSpecs() {
+  // Send hardware specs
+
+  mainWindow.webContents.on("dom-ready", () => {
+    mainWindow.webContents.send("type", os.type());
+    mainWindow.webContents.send("arch", os.arch());
+    mainWindow.webContents.send("platform", os.platform());
+    mainWindow.webContents.send("freemem", os.freemem());
+    mainWindow.webContents.send("totalmem", os.totalmem());
+    mainWindow.webContents.send("hostname", os.hostname());
   });
 }
 
@@ -36,6 +52,7 @@ app.on("ready", () => {
   //? set window
   createWindow();
   mainWindow.maximize();
+  sendSpecs();
 });
 //? Quit when all windows are closed.
 app.on("window-all-closed", function() {
