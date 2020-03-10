@@ -9,4 +9,4 @@
         100%{transform:translate3d(0, 0, 0);}
       }
     
-  </style><line x1="4" y1="49" x2="96" y2="49" stroke="#6e5773" stroke-width="2px"></line><circle class="line-slider1" cx="17" cy="49" r="8" fill="#6e5773" stroke="#6e5773" stroke-width="2px" style="animation-duration: 3s;"></circle></svg>
+  </style><line x1="4" y1="49" x2="96" y2="49" stroke="#d45d79" stroke-width="2px"></line><circle class="line-slider1" cx="17" cy="49" r="8" fill="#b01c1c" stroke="#d45d79" stroke-width="2px" style="animation-duration: 3s;"></circle></svg>
