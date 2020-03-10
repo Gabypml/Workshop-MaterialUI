@@ -47,14 +47,8 @@ const handleSlider = e => {
   return (
     <div className={classes.root}>
       <Grid container spacing={2}>
-        <Grid item>
-          <RemoveIcon />
-        </Grid>
         <Grid item xs>
           <Slider value={beat} aria-labelledby="continuous-slider" />
-        </Grid>
-        <Grid item>
-          <AddIcon />
         </Grid>
       </Grid>
     </div>

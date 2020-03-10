@@ -8,9 +8,9 @@ import pause from "./assets/pause.png";
 
 import {makeStyles} from "@material-ui/styles";
 import Slider from '@material-ui/core/Slider';
-import Fab from '@material-ui/core/Fab';
-import RemoveIcon from '@material-ui/icons/Remove';
-import AddIcon from '@material-ui/icons/Add';
+import IconButton from '@material-ui/core/IconButton'
+import RemoveCircleOutline from '@material-ui/icons/RemoveCircleOutline';
+import AddCircleOutline from '@material-ui/icons/AddCircleOutline';
 
 const Metronome = () => {
   const [beat, setBeat] = useState(100);
@@ -75,7 +75,11 @@ const Metronome = () => {
 
   const useStyles = makeStyles({
     Slider: {
-      width: "400px"
+      width: "400px",
+      color: "#d45d79"
+    },
+    Buttons: {
+      color: "#d45d79"
     }
   })
 
@@ -85,7 +89,9 @@ const Metronome = () => {
     <div>
       <h3>{beat} BPM</h3>
       <div>
-        <RemoveIcon onClick={handleMinus}/>
+        <IconButton className={classes.Buttons} aria-label="remove" onClick={handleMinus}>
+          <RemoveCircleOutline/>
+        </IconButton>
         <Slider 
           className={classes.Slider}
           valueLabelDisplay="auto"
@@ -94,7 +100,9 @@ const Metronome = () => {
           max={240}
           onChange={handleSlider} 
           aria-labelledby="input-slider" />
-        <AddIcon onClick={handlePlus}/>
+        <IconButton className={classes.Buttons} aria-label="add" onClick={handlePlus}>
+          <AddCircleOutline/>
+        </IconButton>
       </div>
       <button onClick={startStop}>
         <img src={playing ? pause : play} alt="play/pause"></img>
