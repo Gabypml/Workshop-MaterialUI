@@ -1,11 +1,17 @@
 import React, { useState } from "react";
 import useInterval from "./useInterval";
+
+
 import Button from '@material-ui/core/Button';
+import { MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import blue from "@material-ui/core/colors/blue";
+
 
 import soundFile1 from "./assets/click1.wav";
 import soundFile2 from "./assets/click2.wav";
 import play from "./assets/play.png";
 import pause from "./assets/pause.png";
+
 
 
 const Metronome = () => {
@@ -62,7 +68,7 @@ const Metronome = () => {
       pulse: measure.pulse
     });
   };
-
+  
   useInterval(() => {
     if (playing) {
       playClick();
@@ -88,31 +94,49 @@ const Metronome = () => {
       </button>
       <div className="bpm-measure">
         <h4>Mesure : </h4>
-        <Button
-          onClick={e => {
-            handlePulse(e, 2);
-          }}
-        >
-          2
-        </Button>
-        <Button
-          onClick={e => {
-            handlePulse(e, 3);
-          }}
-        >
-          3
-        </Button>
-        <Button
-          className="active"
-          onClick={e => {
-            handlePulse(e, 4);
-          }}
-        >
-          4
-        </Button>
+        <MuiThemeProvider theme={theme}>
+          <Button color="primary"
+            onClick={e => {
+              handlePulse(e, 2);
+            }}
+          >
+            2
+          </Button>
+          <Button
+            onClick={e => {
+              handlePulse(e, 3);
+            }}
+          >
+            3
+          </Button>
+          <Button
+            className="active"
+            onClick={e => {
+              handlePulse(e, 4);
+            }}
+          >
+            4
+          </Button>
+        </MuiThemeProvider>
       </div>
     </div>
   );
 };
+const theme = createMuiTheme({
+  palette:{
+    primary: blue
+  },
+  typography:{
+    fontSize: 20,
+    fontFamily: "Arial, Helvetica"
+  },
+  overrides:{
+    MuiButton:{
+      root:{
+        backgroundColor: "red"
+      }
+    }
+  }
+})
 
 export default Metronome;
