@@ -32,13 +32,6 @@ const theme = createMuiTheme({
 });
 
 const useStyles = makeStyles({
-  AppPaper: {
-    backgroundColor: "",
-    margin: "9px auto",
-    height: "97vh",
-    width: "100vh",
-    border: "1.4px solid #f06060"
-  },
   headerTitle: {
     display: "flex",
     justifyContent: "center"
@@ -52,11 +45,11 @@ const useStyles = makeStyles({
   },
   mainNav: {
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "space-around",
     margin: "20px 0"
   },
   buttonNav: {
-    margin: "0 40px"
+    width: "80%"
   }
 });
 
@@ -64,58 +57,56 @@ function App() {
   const classes = useStyles();
   return (
     <ThemeProvider theme={theme}>
-      <Paper elevation={3} className={classes.AppPaper} justify={"center"}>
-        <Grid container>
-          <Grid item xs={12}>
-            <header className={classes.headerTitle}>
-              <Typography variant="h1" className={classes.title}>
-                React + Electron ={" "}
-              </Typography>
-              <img src={loveImg} className={classes.imgLove} />
-            </header>
-          </Grid>
-          <Grid item xs={12}>
-            <main>
-              <Router>
-                <nav className={classes.mainNav}>
-                  <Grid item xs={3}>
-                    <Button
-                      variant={"outlined"}
-                      color={"primary"}
-                      className={classes.buttonNav}
-                    >
-                      <Link to="/metronome">
-                        Metronome
-                        <img src={metronomeImg} />
-                      </Link>
-                    </Button>
-                  </Grid>
-
-                  <Grid item xs={3}>
-                    <Button
-                      variant={"outlined"}
-                      color={"primary"}
-                      className={classes.buttonNav}
-                    >
-                      <Link to="/systemspec">
-                        SystemSpec
-                        <img src={systemeImg} alt={"HEY"} />
-                      </Link>
-                    </Button>
-                  </Grid>
-                </nav>
-
-                <Route path="/metronome">
-                  <Metronome />
-                </Route>
-                <Route path={"/systemspec"}>
-                  <SystemSpecs />
-                </Route>
-              </Router>
-            </main>
-          </Grid>
+      <Grid container>
+        <Grid item xs={12}>
+          <header className={classes.headerTitle}>
+            <Typography variant="h1" className={classes.title}>
+              React + Electron ={" "}
+            </Typography>
+            <img src={loveImg} className={classes.imgLove} />
+          </header>
         </Grid>
-      </Paper>
+        <Grid item xs={12}>
+          <main>
+            <Router>
+              <nav className={classes.mainNav}>
+                <Grid item xs={3}>
+                  <Button
+                    variant={"outlined"}
+                    color={"primary"}
+                    className={classes.buttonNav}
+                  >
+                    <Link to="/metronome">
+                      Metronome
+                      <img src={metronomeImg} />
+                    </Link>
+                  </Button>
+                </Grid>
+
+                <Grid item xs={3}>
+                  <Button
+                    variant={"outlined"}
+                    color={"primary"}
+                    className={classes.buttonNav}
+                  >
+                    <Link to="/systemspec">
+                      SystemSpec
+                      <img src={systemeImg} alt={"HEY"} />
+                    </Link>
+                  </Button>
+                </Grid>
+              </nav>
+
+              <Route path="/metronome">
+                <Metronome />
+              </Route>
+              <Route path={"/systemspec"}>
+                <SystemSpecs />
+              </Route>
+            </Router>
+          </main>
+        </Grid>
+      </Grid>
     </ThemeProvider>
   );
 }
