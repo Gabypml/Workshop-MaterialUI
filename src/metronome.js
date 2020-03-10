@@ -3,6 +3,7 @@ import useInterval from "./useInterval";
 
 
 import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup'
 import { MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import blue from "@material-ui/core/colors/blue";
 
@@ -94,37 +95,43 @@ const Metronome = () => {
       </button>
       <div>
         <h4>Mesure : </h4>
+       
         <MuiThemeProvider theme={theme}>
-          <Button color="primary"
-            onClick={e => {
-              handlePulse(e, 2);
-            }}
-          >
-            2
-          </Button>
-          <Button
-            onClick={e => {
-              handlePulse(e, 3);
-            }}
-          >
-            3
-          </Button>
-          <Button
-            className="active"
-            onClick={e => {
-              handlePulse(e, 4);
-            }}
-          >
-            4
-          </Button>
+          <ButtonGroup>
+            <Button color="primary"
+              onClick={e => {
+                handlePulse(e, 2);
+              }}
+            >
+              DEUX
+            </Button>
+            <Button color="primary"
+              onClick={e => {
+                handlePulse(e, 3);
+              }}
+            >
+              TROIS
+            </Button>
+            <Button color="primary"
+              className="active"
+              onClick={e => {
+                handlePulse(e, 4);
+              }}
+            >
+              QUATRE
+            </Button>
+            </ButtonGroup>
         </MuiThemeProvider>
+          
       </div>
     </div>
   );
 };
 const theme = createMuiTheme({
   palette:{
-    primary: blue
+    primary:{
+      main: "#8B0000"
+    }
   },
   typography:{
     fontSize: 20,
@@ -133,7 +140,7 @@ const theme = createMuiTheme({
   overrides:{
     MuiButton:{
       root:{
-        backgroundColor: "red"
+        backgroundColor: "#d45d79"
       }
     }
   }
