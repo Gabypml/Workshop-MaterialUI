@@ -76,11 +76,14 @@ const Metronome = () => {
     <div className="metronome">
       <h3>{beat} BPM</h3>
       <div className="bpm-slider">
-        <Fab color="primary" aria-label="add">
+        <Fab color="primary" aria-label="remove">
           <RemoveIcon onClick={handleMinus}/>
         </Fab>
         <Slider />
-        <AddIcon onClick={handlePlus}/>
+        <Fab color="primary" aria-label="add">
+          <AddIcon onClick={handlePlus}/>
+        </Fab>
+        
       </div>
       <button className="startStop" onClick={startStop}>
         <img src={playing ? pause : play} alt="play/pause"></img>
