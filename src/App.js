@@ -13,9 +13,11 @@ import loveImg from "./assets/love.svg";
 
 import { makeStyles } from "@material-ui/styles";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
-import { Grid } from "@material-ui/core";
+import { Grid, Link as LinkUI } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
+import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
+import Toolbar from "@material-ui/core/Toolbar";
 
 import Typography from "@material-ui/core/Typography";
 import SystemSpecs from "./SystemSpec";
@@ -38,18 +40,22 @@ const useStyles = makeStyles({
   },
   title: {
     fontSize: "2.5rem",
-    marginTop: "8px"
+    marginTop: "8px",
+    width: "auto"
   },
   imgLove: {
-    height: "8vh"
+    height: "8vh",
+    width: "auto"
   },
   mainNav: {
     display: "flex",
     justifyContent: "space-around",
-    margin: "20px 0"
+    margin: "120px 0"
   },
   buttonNav: {
-    width: "80%"
+    width: "30vw",
+    height: "50vh",
+    display: "block"
   }
 });
 
@@ -59,12 +65,14 @@ function App() {
     <ThemeProvider theme={theme}>
       <Grid container>
         <Grid item xs={12}>
-          <header className={classes.headerTitle}>
-            <Typography variant="h1" className={classes.title}>
-              React + Electron ={" "}
-            </Typography>
-            <img src={loveImg} className={classes.imgLove} />
-          </header>
+          <AppBar color={"secondary"} className={classes.headerTitle}>
+            <Toolbar>
+              <Typography variant="h1" className={classes.title}>
+                React + Electron ={" "}
+              </Typography>
+              <img src={loveImg} className={classes.imgLove} />
+            </Toolbar>
+          </AppBar>
         </Grid>
         <Grid item xs={12}>
           <main>
@@ -77,7 +85,7 @@ function App() {
                     className={classes.buttonNav}
                   >
                     <Link to="/metronome">
-                      Metronome
+                      <LinkUI>Metronome</LinkUI>
                       <img src={metronomeImg} />
                     </Link>
                   </Button>
@@ -90,7 +98,7 @@ function App() {
                     className={classes.buttonNav}
                   >
                     <Link to="/systemspec">
-                      SystemSpec
+                      <LinkUI>SystemSpec</LinkUI>
                       <img src={systemeImg} alt={"HEY"} />
                     </Link>
                   </Button>
