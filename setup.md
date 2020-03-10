@@ -16,4 +16,4 @@ Puisque Material UI fonctionne avec la police Roboto, il vous faut l'importer:
 
 Well done! You are all set to start our workshop :fire:
 
-[◀ Previous step](#README.md) 🤨 [Next step ▶](#app)
+[◀ Previous step](#README.md) 🤨 [Next step ▶](app.md)
