@@ -29,8 +29,8 @@ Pour pouvoir gérer notre propre style, créez une fonction que l'on stockera da
 ### 4. Le slider
 
 Maintenant que tout cela est fait, nous pouvons passer aux choses sérieuses! 😏
-Tout d'abord, dans la const **handleSlider**, ajoutez comme deuxième paramètre `setBeat(newValue);`
-Ensuite dans le **<return()>**, en dessous du **<h3>**, créez une **<div>** dans laquelle vous intégrez votre `<IconButton></IconButton>`. Donnez 3 props à **<IconButton>**: 
+Tout d'abord, dans la const **handleSlider**, ajoutez comme deuxième paramètre `setBeat(newValue);`. 
+Ensuite dans le <**return()**>, en dessous du <**h3**>, créez une <**div**> dans laquelle vous intégrez votre `<IconButton></IconButton>`. Donnez 3 props à <**IconButton**>: 
 1. className={}
 2. aria-label="remove"
 3. onChange={handleMinus}
