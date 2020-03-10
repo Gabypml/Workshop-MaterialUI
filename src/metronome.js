@@ -6,6 +6,7 @@ import soundFile2 from "./assets/click2.wav";
 import play from "./assets/play.png";
 import pause from "./assets/pause.png";
 
+import {makeStyles} from "@material-ui/styles";
 import Slider from '@material-ui/core/Slider';
 import Fab from '@material-ui/core/Fab';
 import RemoveIcon from '@material-ui/icons/Remove';
@@ -22,10 +23,10 @@ const Metronome = () => {
   const click1 = new Audio(soundFile1);
   const click2 = new Audio(soundFile2);
 
-  const handleSlider = e => {
+  const handleSlider = (e,newValue) => {
     setMeasure({ count: 0, pulse: measure.pulse });
-    setBeat(+e.target.value);
-  };
+    setBeat(newValue);
+  }; 
   const handleMinus = () => {
     setMeasure({ count: 0, pulse: measure.pulse });
     setBeat(beat - 1);
@@ -72,19 +73,28 @@ const Metronome = () => {
     }
   }, 60000 / beat);
 
+  const useStyles = makeStyles({
+    Slider: {
+      width: "400px"
+    }
+  })
+
+  const classes = useStyles()
+
   return (
     <div>
       <h3>{beat} BPM</h3>
       <div>
-        <button onClick={handleMinus}>-</button>
-        <input
-          type="range"
-          min="60"
-          max="240"
+        <RemoveIcon onClick={handleMinus}/>
+        <Slider 
+          className={classes.Slider}
+          valueLabelDisplay="auto"
           value={beat}
-          onChange={handleSlider}
-        />
-        <button onClick={handlePlus}>+</button>
+          min={0}
+          max={240}
+          onChange={handleSlider} 
+          aria-labelledby="input-slider" />
+        <AddIcon onClick={handlePlus}/>
       </div>
       <button onClick={startStop}>
         <img src={playing ? pause : play} alt="play/pause"></img>
