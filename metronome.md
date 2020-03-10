@@ -22,7 +22,7 @@ Pour créer le slider, importez le simplement depuis Material UI dans le fichier
 
 ### 3. Appliquer les propriétés CSS au slider
  
-Pour pouvoir gérer notre propre style, créez une fonction que l'on stockera dans une variable **`const useStyle = makeStyle({})`**. C'est dans celle-ci que l'on pourra modifier le style de notre slider. Dans cette fonction, nous pourrons utiliser des noms de classes afin de donner différentes propriétés CSS que l'on pourra appliquer par la suite. 
+Pour pouvoir gérer notre propre style, créez une fonction que l'on stockera dans une variable **`const useStyle = makeStyle({})`**. C'est dans celle-ci que l'on pourra modifier le style de notre slider, en utilisant des noms de classes afin de donner différentes propriétés CSS que l'on pourra appliquer par la suite. 
 
 - Stockez votre fonction **useStyle()** dans une const que vous appellez classes. Cela permettra d'appliquer le style au slider --> `const classes = useStyle();`
 
