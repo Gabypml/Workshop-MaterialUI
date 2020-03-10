@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 import useInterval from "./useInterval";
 
-
-import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup'
-import { MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
+import Button from "@material-ui/core/Button";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import blue from "@material-ui/core/colors/blue";
-
 
 import soundFile1 from "./assets/click1.wav";
 import soundFile2 from "./assets/click2.wav";
 import play from "./assets/play.png";
 import pause from "./assets/pause.png";
-
-
 
 const Metronome = () => {
   const [beat, setBeat] = useState(100);
@@ -69,7 +65,7 @@ const Metronome = () => {
       pulse: measure.pulse
     });
   };
-  
+
   useInterval(() => {
     if (playing) {
       playClick();
@@ -95,24 +91,27 @@ const Metronome = () => {
       </button>
       <div>
         <h4>Mesure : </h4>
-       
+
         <MuiThemeProvider theme={theme}>
           <ButtonGroup>
-            <Button color="primary"
+            <Button
+              color="primary"
               onClick={e => {
                 handlePulse(e, 2);
               }}
             >
               DEUX
             </Button>
-            <Button color="primary"
+            <Button
+              color="primary"
               onClick={e => {
                 handlePulse(e, 3);
               }}
             >
               TROIS
             </Button>
-            <Button color="primary"
+            <Button
+              color="primary"
               className="active"
               onClick={e => {
                 handlePulse(e, 4);
@@ -120,30 +119,29 @@ const Metronome = () => {
             >
               QUATRE
             </Button>
-            </ButtonGroup>
+          </ButtonGroup>
         </MuiThemeProvider>
-          
       </div>
     </div>
   );
 };
 const theme = createMuiTheme({
-  palette:{
-    primary:{
+  palette: {
+    primary: {
       main: "#8B0000"
     }
   },
-  typography:{
+  typography: {
     fontSize: 20,
     fontFamily: "Arial, Helvetica"
   },
-  overrides:{
-    MuiButton:{
-      root:{
+  overrides: {
+    MuiButton: {
+      root: {
         backgroundColor: "#d45d79"
       }
     }
   }
-})
+});
 
 export default Metronome;
