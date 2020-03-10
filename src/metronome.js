@@ -79,7 +79,7 @@ const Metronome = () => {
         <Fab color="primary" aria-label="add">
           <RemoveIcon onClick={handleMinus}/>
         </Fab>
-        <Slider onChange={handleSlider} />
+        <Slider />
         <AddIcon onClick={handlePlus}/>
       </div>
       <button className="startStop" onClick={startStop}>

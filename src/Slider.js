@@ -51,12 +51,11 @@ const handleSlider = e => {
           <RemoveIcon />
         </Grid>
         <Grid item xs>
-          <Slider min ="60" max="240" value={beat} aria-labelledby="continuous-slider" />
+          <Slider value={beat} aria-labelledby="continuous-slider" />
         </Grid>
         <Grid item>
           <AddIcon />
         </Grid>
       </Grid>
-      <Slider disabled defaultValue={30} aria-labelledby="continuous-slider" />
     </div>
   );
