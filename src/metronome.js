@@ -20,17 +20,6 @@ import AddCircleOutline from "@material-ui/icons/AddCircleOutline";
 import LightBlue from "@material-ui/core/colors/lightBlue";
 import { lightBlue } from "@material-ui/core/colors";
 
-const useStyles = makeStyles({
-  Slider: {
-    width: "400px",
-    color: "#d45d79",
-    margin: "-10px 5px"
-  },
-  Buttons: {
-    color: "#d45d79"
-  }
-});
-
 const Metronome = () => {
   const [beat, setBeat] = useState(100);
   const [playing, setPlaying] = useState(false);
@@ -94,11 +83,13 @@ const Metronome = () => {
 
   const useStyles = makeStyles({
     Slider: {
-      width: "400px",
-      color: "#3D3D93"
+      width: "280px",
+      color: "#3D3D93",
+      margin: "0 10px 0 10px"
     },
     Buttons: {
-      color: lightBlue[300]
+      color: lightBlue[300], 
+      display: "inline-block"
     },
     playButton: {
       height: "70px",
