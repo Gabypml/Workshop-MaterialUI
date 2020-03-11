@@ -4,7 +4,7 @@ import useInterval from "./useInterval";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import { sizing } from '@material-ui/system'
+import { sizing } from "@material-ui/system";
 import blue from "@material-ui/core/colors/blue";
 
 import soundFile1 from "./assets/click1.wav";
@@ -12,11 +12,13 @@ import soundFile2 from "./assets/click2.wav";
 import play from "./assets/play.png";
 import pause from "./assets/pause.png";
 
-import {makeStyles} from "@material-ui/styles";
-import Slider from '@material-ui/core/Slider';
-import IconButton from '@material-ui/core/IconButton';
-import RemoveCircleOutline from '@material-ui/icons/RemoveCircleOutline';
-import AddCircleOutline from '@material-ui/icons/AddCircleOutline';
+import { makeStyles } from "@material-ui/styles";
+import Slider from "@material-ui/core/Slider";
+import IconButton from "@material-ui/core/IconButton";
+import RemoveCircleOutline from "@material-ui/icons/RemoveCircleOutline";
+import AddCircleOutline from "@material-ui/icons/AddCircleOutline";
+import LightBlue from "@material-ui/core/colors/lightBlue";
+import { lightBlue } from "@material-ui/core/colors";
 
 const useStyles = makeStyles({
   Slider: {
@@ -40,10 +42,10 @@ const Metronome = () => {
   const click1 = new Audio(soundFile1);
   const click2 = new Audio(soundFile2);
 
-  const handleSlider = (e,newValue) => {
+  const handleSlider = (e, newValue) => {
     setMeasure({ count: 0, pulse: measure.pulse });
     setBeat(newValue);
-  }; 
+  };
   const handleMinus = () => {
     setMeasure({ count: 0, pulse: measure.pulse });
     setBeat(beat - 1);
@@ -90,29 +92,56 @@ const Metronome = () => {
     }
   }, 60000 / beat);
 
+  const useStyles = makeStyles({
+    Slider: {
+      width: "400px",
+      color: "#3D3D93"
+    },
+    Buttons: {
+      color: lightBlue[300]
+    },
+    playButton: {
+      height: "70px",
+      width: "70px"
+    }
+  });
+
   const classes = useStyles();
 
   return (
     <div>
       <h3>{beat} BPM</h3>
       <div>
-        <IconButton className={classes.Buttons} aria-label="remove" onClick={handleMinus}>
-          <RemoveCircleOutline/>
+        <IconButton
+          className={classes.Buttons}
+          aria-label="remove"
+          onClick={handleMinus}
+        >
+          <RemoveCircleOutline />
         </IconButton>
-        <Slider 
+        <Slider
           className={classes.Slider}
           valueLabelDisplay="auto"
           value={beat}
           min={0}
           max={240}
-          onChange={handleSlider} 
-          aria-labelledby="continuous-slider" />
-        <IconButton className={classes.Buttons} aria-label="add" onClick={handlePlus}>
-          <AddCircleOutline/>
+          onChange={handleSlider}
+          aria-labelledby="input-slider"
+        />
+        <IconButton
+          className={classes.Buttons}
+          aria-label="add"
+          onClick={handlePlus}
+        >
+          <AddCircleOutline />
         </IconButton>
       </div>
       <Button onClick={startStop}>
-        <img src={playing ? pause : play} style={{maxWidth: '70px', maxHeight: '70px', minWidth: '70px', minHeight: '70px'}} alt="play/pause"></img>
+        <img
+          src={playing ? pause : play}
+          className={classes.playButton}
+          alt="play/pause"
+        />
       </Button>
       <div>
         <h4>Mesure : </h4>
@@ -154,6 +183,9 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       main: "#8B0000"
+    },
+    secondary: {
+      main: "#3D3D93"
     }
   },
   typography: {

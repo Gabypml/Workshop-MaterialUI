@@ -13,9 +13,11 @@ import loveImg from "./assets/love.svg";
 
 import { makeStyles } from "@material-ui/styles";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
-import { Grid } from "@material-ui/core";
+import { Grid, Link as LinkUI } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
+import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
+import Toolbar from "@material-ui/core/Toolbar";
 
 import Typography from "@material-ui/core/Typography";
 import SystemSpecs from "./SystemSpec";
@@ -32,31 +34,62 @@ const theme = createMuiTheme({
 });
 
 const useStyles = makeStyles({
-  AppPaper: {
-    backgroundColor: "",
-    margin: "9px auto",
-    height: "97vh",
-    width: "100vh",
-    border: "1.4px solid #f06060"
-  },
   headerTitle: {
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
+    width: "99%",
+    margin: "0 7px 0 0"
   },
   title: {
-    fontSize: "2.5em !important",
-    marginTop: "8px"
+    fontSize: "2.5rem !important",
+    marginTop: "8px",
+    width: "auto"
   },
   imgLove: {
-    height: "8vh"
+    height: "8vh",
+    width: "auto"
   },
   mainNav: {
-    display: "flex",
-    justifyContent: "center",
-    margin: "20px 0"
+    margin: "auto"
   },
   buttonNav: {
-    margin: "0 40px"
+    width: "250px",
+    height: "30vh",
+    margin: "35px auto",
+    borderRadius: "48px",
+    background: "linear-gradient(180deg, #333764, #2b2e54)",
+    boxShadow: "-12px 12px 24px #1c1e36,12px -12px 24px #444884"
+  },
+  imgButton: {
+    display: "block"
+  },
+  PaperApp: {
+    color: "#ddd",
+    width: "99vw",
+    height: "97vh",
+    margin: "10px auto",
+    backgroundColor: "#2e344c"
+  },
+  mainApp: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: "80px",
+    height: "80vh"
+  },
+  paperNav: {
+    borderRadius: "30px",
+    backgroundColor: "rgba(48,51,93,1)",
+    marginRight: "50px",
+    minWidth: "300px",
+    width: "25vw"
+  },
+  paperDisplay: {
+    marginLeft: "50px",
+    minWidth: "300px",
+    width: "25vw"
+  },
+  center: {
+    display: "flex"
   }
 });
 
@@ -64,53 +97,67 @@ function App() {
   const classes = useStyles();
   return (
     <ThemeProvider theme={theme}>
-      <Paper elevation={3} className={classes.AppPaper} justify={"center"}>
+      <Paper className={classes.PaperApp}>
         <Grid container>
-          <Grid item xs={12}>
-            <header className={classes.headerTitle}>
-              <Typography variant="h1" className={classes.title}>
-                React + Electron ={" "}
-              </Typography>
-              <img src={loveImg} className={classes.imgLove} />
-            </header>
+          <Grid item>
+            <AppBar color={"secondary"} className={classes.headerTitle}>
+              <Toolbar>
+                <Typography variant="h1" className={classes.title}>
+                  React + Electron ={" "}
+                </Typography>
+                <img src={loveImg} className={classes.imgLove} />
+              </Toolbar>
+            </AppBar>
           </Grid>
           <Grid item xs={12}>
-            <main>
+            <main className={classes.mainApp}>
               <Router>
-                <nav className={classes.mainNav}>
-                  <Grid item xs={3}>
-                    <Button
-                      variant={"outlined"}
-                      color={"primary"}
-                      className={classes.buttonNav}
-                    >
-                      <Link to="/metronome">
-                        Metronome
-                        <img src={metronomeImg} />
-                      </Link>
-                    </Button>
-                  </Grid>
+                <Paper className={classes.paperNav} elevation={3}>
+                  <nav className={classes.mainNav}>
+                    <Grid item className={classes.center}>
+                      <Button
+                        variant={"outlined"}
+                        color={"primary"}
+                        className={classes.buttonNav}
+                        justify={"center"}
+                      >
+                        <Link to="/metronome">
+                          <LinkUI>Metronome</LinkUI>
+                          <img
+                            src={metronomeImg}
+                            className={classes.imgButton}
+                          />
+                        </Link>
+                      </Button>
+                    </Grid>
 
-                  <Grid item xs={3}>
-                    <Button
-                      variant={"outlined"}
-                      color={"primary"}
-                      className={classes.buttonNav}
-                    >
-                      <Link to="/systemspec">
-                        SystemSpec
-                        <img src={systemeImg} alt={"HEY"} />
-                      </Link>
-                    </Button>
-                  </Grid>
-                </nav>
-
-                <Route path="/metronome">
-                  <Metronome />
-                </Route>
-                <Route path={"/systemspec"}>
-                  <SystemSpecs />
-                </Route>
+                    <Grid item className={classes.center}>
+                      <Button
+                        variant={"outlined"}
+                        color={"primary"}
+                        className={classes.buttonNav}
+                        justify={"center"}
+                      >
+                        <Link to="/systemspec">
+                          <LinkUI>SystemSpec</LinkUI>
+                          <img
+                            src={systemeImg}
+                            alt={"HEY"}
+                            className={classes.imgButton}
+                          />
+                        </Link>
+                      </Button>
+                    </Grid>
+                  </nav>
+                </Paper>
+                <Paper className={classes.paperDisplay}>
+                  <Route path="/metronome">
+                    <Metronome />
+                  </Route>
+                  <Route path={"/systemspec"}>
+                    <SystemSpecs />
+                  </Route>
+                </Paper>
               </Router>
             </main>
           </Grid>
