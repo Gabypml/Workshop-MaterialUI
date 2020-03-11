@@ -44,7 +44,7 @@ const useStyles = makeStyles({
     justifyContent: "center"
   },
   title: {
-    fontSize: "2.5rem",
+    fontSize: "2.5em !important",
     marginTop: "8px"
   },
   imgLove: {
