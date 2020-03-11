@@ -16,16 +16,8 @@ Dernière installation: le style:
 Puisque Material UI fonctionne avec la police Roboto, il vous faut l'importer:
 
 - Allez dans votre dossier **public**
-<<<<<<< HEAD
 - Ouvrez le fichier **index.html** et collez ceci ` <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>` dans le **head**. 
 
 Well done! You are all set to start our workshop :fire:
 
 [◀ Previous step](#README.md) 🤨 [Next step ▶](app.md)
-=======
-- Ouvrez le ficheir **index.html** et collez ceci `<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>` dans le **head**.
-
-Well done! You are all set to start our workshop :fire:
-
-[Next Step](#app)
->>>>>>> df6d7bd3b651bfe7212a6ed3e725c6a512995d96
