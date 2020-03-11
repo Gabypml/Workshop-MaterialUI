@@ -17,6 +17,7 @@ Une fois que tout est importé, nous pouvons passer à la suite 😋.
 ### 2. Création du slider
 
 Pour créer le slider, bonne nouvelle, vous l'avez déjà importé grâce à `import Slider from '@material-ui/core/Slider';` 😎
+Il suffira de lui donner quelques props par la suite pour lui donner un style et le rendre fonctionnel.
 
 
 ### 3. Appliquer les propriétés CSS au slider
