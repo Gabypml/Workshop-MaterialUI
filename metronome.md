@@ -56,9 +56,23 @@ Passez lui différentes props:
 6. onChange={}
 7. aria-labelledby=""
 
-De manière à ce que le code final ressemble à cela: 
+Cela doit ressembler à cela:
 
-![Code Slider](src/assets/code_slider_props.jpg)
+![Code slider](src/assets/code_slider_props.jpg)
+
+Pour le styliser un petit peu, nous allons donner des noms de classes dans notre **const = useStyle**. Dans la fonction **makeStyle({})**, définissez la classe **Slider** à laquelle vous donnez 3 propriétés:
+1. width
+2. color
+3. margin
+
+Pour styliser les boutons, même chose. Définissez la classe **Buttons** à laquelle vous donnez la propriété color.
+❗Attention, les valeurs données aux propriétés doivent être mises entre guillemets❗
+
+![Style](src/assets/code_style.jpg)
+
+Une fois les propriétés données, appliquez-les en les passant en paramètres dans le **className** respectivement du <**slider**> et des <**IconButton**> de manière à ce que le code final ressemble à cela: 
+
+![Code Slider](src/assets/final_code.jpg)
 
 Voilà, le slider est fonctionnel et stylisé ! 🤩
 

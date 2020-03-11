@@ -20,7 +20,8 @@ import AddCircleOutline from '@material-ui/icons/AddCircleOutline';
 const useStyles = makeStyles({
   Slider: {
     width: "400px",
-    color: "#d45d79"
+    color: "#d45d79",
+    margin: "-10px 5px"
   },
   Buttons: {
     color: "#d45d79"
