@@ -4,4 +4,4 @@
 
 ## Great job ! You're all done ! 
 
-![Congrats](https://media.giphy.com/media/g9582DNuQppxC/giphy.gif)
+![Congrats](src/assets/congrats.gif)
