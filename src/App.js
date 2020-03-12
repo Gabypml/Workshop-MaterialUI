@@ -13,7 +13,7 @@ import loveImg from "./assets/love.svg";
 
 import { makeStyles } from "@material-ui/styles";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
-import { Grid, Link as LinkUI } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
@@ -21,6 +21,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 
 import Typography from "@material-ui/core/Typography";
 import SystemSpecs from "./SystemSpec";
+import Box from "@material-ui/core/Box";
 
 const theme = createMuiTheme({
   palette: {
@@ -55,8 +56,8 @@ const useStyles = makeStyles({
     height: "30vh",
     margin: "35px auto",
     borderRadius: "48px",
-    background: "linear-gradient(180deg, #333764, #2b2e54)",
-    boxShadow: "-12px 12px 24px #1c1e36,12px -12px 24px #444884"
+    background: "linear-gradient(180deg, #41419d, #373784)",
+    boxShadow: "-12px 12px 24px #232355,12px -12px 24px #5757d1"
   },
   imgButton: {
     display: "block"
@@ -76,15 +77,17 @@ const useStyles = makeStyles({
   },
   paperNav: {
     borderRadius: "30px",
-    backgroundColor: "rgba(48,51,93,1)",
+    backgroundColor: "#3D3D93",
     marginRight: "50px",
     minWidth: "300px",
     width: "25vw"
   },
   paperDisplay: {
-    backgroundColor: "rgba(48,51,93,1)",
+    backgroundColor: "#3D3D93",
     marginLeft: "50px",
     minWidth: "300px",
+    borderRadius: "30px",
+
     width: "25vw"
   },
   center: {
@@ -113,24 +116,26 @@ function App() {
               <Router>
                 <Paper className={classes.paperNav} elevation={3}>
                   <nav className={classes.mainNav}>
-                    <Grid item className={classes.center}>
-                      <Button
-                        variant={"outlined"}
-                        color={"primary"}
-                        className={classes.buttonNav}
-                        justify={"center"}
-                      >
-                        <Link to="/metronome">
-                          <Typography color={"primary"}>Metronome</Typography>
-                          <img
-                            src={metronomeImg}
-                            className={classes.imgButton}
-                          />
-                        </Link>
-                      </Button>
+                    <Grid item>
+                      <Box component={"div"} display={"flex"}>
+                        <Button
+                          variant={"outlined"}
+                          color={"primary"}
+                          className={classes.buttonNav}
+                          justify={"center"}
+                        >
+                          <Link to="/metronome">
+                            <Typography color={"primary"}>Metronome</Typography>
+                            <img
+                              src={metronomeImg}
+                              className={classes.imgButton}
+                            />
+                          </Link>
+                        </Button>
+                      </Box>
                     </Grid>
 
-                    <Grid item className={classes.center}>
+                    <Grid item display={"flex"}>
                       <Button
                         variant={"outlined"}
                         color={"primary"}
