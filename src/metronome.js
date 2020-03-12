@@ -47,8 +47,8 @@ const Metronome = () => {
   const handlePulse = (e, pulse) => {
     document
       .querySelectorAll("button.active")
-      .forEach(button => button.classList.remove("active"));
-    e.target.classList.add("active");
+      .forEach(button => button.classList.remove(classes.active));
+    e.target.classList.add(classes.active);
     setMeasure({ count: 0, pulse: pulse });
   };
 
@@ -83,16 +83,22 @@ const Metronome = () => {
 
   const useStyles = makeStyles({
     Slider: {
-      width: "400px",
-      color: "#3D3D93"
+      width: "280px",
+      color: "#D45D79"
+    },
+    metronomeApp: {
+      padding: "25% 0 25%"
+    },
+    divButtons: {
+      margin: "0 140px"
     },
     Buttons: {
-      color: lightBlue[300]
+      color: "#D45D79"
     },
     playButton: {
       borderRadius: "50%",
-      background: "linear-gradient(180deg, #333764, #2b2e54)",
-      boxShadow: "-7px 7px 14px #1c1e36, 7px -7px 14px #444884"
+      background: "linear-gradient(180deg, #41419d, #373784)",
+      boxShadow: "-7px 7px 14px #232355, 7px -7px 14px #5757d1"
     },
     BPMBeat: {
       border: "#5cff61 1px solid",
@@ -103,38 +109,42 @@ const Metronome = () => {
   const classes = useStyles();
 
   return (
-    <Grid container justify={"center"}>
+    <Grid container justify={"center"} className={classes.metronomeApp}>
       <Grid className={classes.BPMBeat}>
         <Typography>{beat}</Typography>
         <span>BPM</span>
       </Grid>
-      <Grid item>
-        <Grid>
-          <Slider
-            className={classes.Slider}
-            valueLabelDisplay="auto"
-            value={beat}
-            min={0}
-            max={240}
-            onChange={handleSlider}
-            aria-labelledby="input-slider"
-          />
+      <Grid container justify={"center"} spacing={3}>
+        <Grid item xs={12}>
+          <Grid container justify={"center"}>
+            <Slider
+              className={classes.Slider}
+              valueLabelDisplay="auto"
+              value={beat}
+              min={0}
+              max={240}
+              onChange={handleSlider}
+              aria-labelledby="input-slider"
+            />
+          </Grid>
         </Grid>
-        <Grid>
-          <IconButton
-            className={classes.Buttons}
-            aria-label="add"
-            onClick={handlePlus}
-          >
-            <AddCircleOutlineIcon />
-          </IconButton>
-          <IconButton
-            className={classes.Buttons}
-            aria-label="remove"
-            onClick={handleMinus}
-          >
-            <RemoveCircleOutline />
-          </IconButton>
+        <Grid item xs={12}>
+          <Grid container justify={"center"}>
+            <IconButton
+              className={classes.Buttons}
+              aria-label="add"
+              onClick={handlePlus}
+            >
+              <AddCircleOutlineIcon />
+            </IconButton>
+            <IconButton
+              className={classes.Buttons}
+              aria-label="remove"
+              onClick={handleMinus}
+            >
+              <RemoveCircleOutline />
+            </IconButton>
+          </Grid>
         </Grid>
       </Grid>
       <Grid item>
@@ -173,7 +183,6 @@ const Metronome = () => {
             </Button>
             <Button
               color="primary"
-              className="active"
               onClick={e => {
                 handlePulse(e, 4);
               }}
