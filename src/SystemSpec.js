@@ -59,8 +59,6 @@ const SystemSpecs = () => {
 
   // console.log(specs);
 
-  const classes = useStyles();
-
   return (
     <Box color="#DDD" py="35%">
       <Grid container justify="center">
@@ -110,12 +108,7 @@ const SystemSpecs = () => {
             </ListItem>
           </List>
         </Grid>
-        <Button
-          className={classes.buttonRefresh}
-          variant="contained"
-          onClick={handleRefresh}
-          color="primary"
-        >
+        <Button variant="contained" onClick={handleRefresh} color="primary">
           Refresh
         </Button>
       </Grid>
