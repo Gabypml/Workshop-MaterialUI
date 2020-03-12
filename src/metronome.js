@@ -85,11 +85,13 @@ const Metronome = () => {
     Slider: {
       width: "280px",
       color: "#3D3D93",
-      margin: "0 10px 0 10px"
+      margin: "0 50px"
+    },
+    divButtons: {
+      margin: "0 140px"
     },
     Buttons: {
-      color: lightBlue[300], 
-      display: "inline-block"
+      color: "#3D3D93"
     },
     playButton: {
       height: "70px",
@@ -103,14 +105,7 @@ const Metronome = () => {
     <div>
       <h3>{beat} BPM</h3>
       <div>
-        <IconButton
-          className={classes.Buttons}
-          aria-label="remove"
-          onClick={handleMinus}
-        >
-          <RemoveCircleOutline />
-        </IconButton>
-        <Slider
+      <Slider
           className={classes.Slider}
           valueLabelDisplay="auto"
           value={beat}
@@ -119,6 +114,14 @@ const Metronome = () => {
           onChange={handleSlider}
           aria-labelledby="input-slider"
         />
+        <div className={classes.divButtons}>
+        <IconButton
+          className={classes.Buttons}
+          aria-label="remove"
+          onClick={handleMinus}
+        >
+          <RemoveCircleOutline />
+        </IconButton>
         <IconButton
           className={classes.Buttons}
           aria-label="add"
@@ -126,6 +129,7 @@ const Metronome = () => {
         >
           <AddCircleOutline />
         </IconButton>
+        </div>
       </div>
       <Button onClick={startStop}>
         <img
