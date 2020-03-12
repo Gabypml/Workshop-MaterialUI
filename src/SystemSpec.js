@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/styles";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
@@ -8,12 +7,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ChevronRightOutlinedIcon from "@material-ui/icons/ChevronRightOutlined";
-
-const useStyles = makeStyles({
-  SpecApp: {
-    color: "#DDD"
-  }
-});
 
 const convertToMb = number => {
   if (Number.isInteger(number)) {
@@ -69,10 +62,10 @@ const SystemSpecs = () => {
   const classes = useStyles();
 
   return (
-    <Box color="text.primary" py="35%">
-      <Grid container justify="center" className={classes.SpecApp}>
+    <Box color="#DDD" py="35%">
+      <Grid container justify="center">
         <Grid item xs={12}>
-          <List component="nav" aria-label="secondary mailbox folders">
+          <List>
             <ListItem>
               <ListItemIcon>
                 <ChevronRightOutlinedIcon color="primary" />
