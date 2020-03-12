@@ -129,7 +129,10 @@ function App() {
                           className={classes.buttonNav}
                           justify={"center"}
                         >
-                          <Link to="/metronome">
+                          <Link
+                            to="/metronome"
+                            style={{ textDecoration: "none" }}
+                          >
                             <Typography color={"primary"}>Metronome</Typography>
                             <img
                               src={metronomeImg}
@@ -147,7 +150,10 @@ function App() {
                           color={"primary"}
                           className={classes.buttonNav}
                         >
-                          <Link to="/systemspec">
+                          <Link
+                            to="/systemspec"
+                            style={{ textDecoration: "none" }}
+                          >
                             <Typography color={"primary"}>
                               SystemSpec
                             </Typography>

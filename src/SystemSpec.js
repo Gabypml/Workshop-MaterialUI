@@ -1,4 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { makeStyles } from "@material-ui/styles";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import Button from "@material-ui/core/Button";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ChevronRightOutlinedIcon from "@material-ui/icons/ChevronRightOutlined";
+
+const useStyles = makeStyles({
+  SpecApp: {
+    color: "#DDD"
+  }
+});
 
 const convertToMb = number => {
   if (Number.isInteger(number)) {
@@ -51,19 +66,67 @@ const SystemSpecs = () => {
 
   // console.log(specs);
 
+  const classes = useStyles();
+
   return (
-    <div>
-      <ul>
-        <li>OS: {specs.type}</li>
-        <li>Architecture: {specs.arch}</li>
-        <li>Platforme: {specs.platform}</li>
-        <li>Nom du PC: {specs.hostname}</li>
-        <li>Mémoire totale: {convertToMb(specs.totalmem)}</li>
-        <li>Mémoire restante: {convertToMb(specs.freemem)}</li>
-      </ul>
-      <button onClick={handleRefresh}>refresh</button>
-    </div>
+    <Box color="text.primary" py="35%">
+      <Grid container justify="center" className={classes.SpecApp}>
+        <Grid item xs={12}>
+          <List component="nav" aria-label="secondary mailbox folders">
+            <ListItem>
+              <ListItemIcon>
+                <ChevronRightOutlinedIcon color="primary" />
+              </ListItemIcon>
+              <ListItemText primary="OS:" />
+              {specs.type}
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                <ChevronRightOutlinedIcon color="primary" />
+              </ListItemIcon>
+              <ListItemText primary="Architecture:" />
+              {specs.arch}
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                <ChevronRightOutlinedIcon color="primary" />
+              </ListItemIcon>
+              <ListItemText primary="Plateforme:" />
+              {specs.platform}
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                <ChevronRightOutlinedIcon color="primary" />
+              </ListItemIcon>
+              <ListItemText primary="Nom du PC:" />
+              {specs.hostname}
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                <ChevronRightOutlinedIcon color="primary" />
+              </ListItemIcon>
+              <ListItemText primary="Mémoire totale:" />
+              {convertToMb(specs.totalmem)}
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                <ChevronRightOutlinedIcon color="primary" />
+              </ListItemIcon>
+              <ListItemText primary="Mémoire restante:" />
+              {convertToMb(specs.freemem)}
+            </ListItem>
+          </List>
+        </Grid>
+        <Button
+          className={classes.buttonRefresh}
+          variant="contained"
+          onClick={handleRefresh}
+          color="primary"
+        >
+          Refresh
+        </Button>
+      </Grid>
+    </Box>
   );
 };
-
 export default SystemSpecs;
