@@ -60,6 +60,7 @@ Pour le construire, rien de plus simple:
 4. color=" "
 
 Votre code pour le bouton devrait ressembler à cela:
+
 ![Button Spec](src/assets/code_button_spec.jpg)
 
 ### 4. Stylisation de la liste
