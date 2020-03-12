@@ -10,7 +10,7 @@ import { makeStyles } from "@material-ui/styles";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 import RemoveCircleOutline from "@material-ui/icons/RemoveCircleOutline";
-import AddCircleOutline from "@material-ui/icons/AddCircleOutline";
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 
 import { lightBlue } from "@material-ui/core/colors";
 import Slider from "@material-ui/core/Slider";
@@ -126,7 +126,7 @@ const Metronome = () => {
             aria-label="add"
             onClick={handlePlus}
           >
-            <AddCircleOutline />
+            <AddCircleOutlineIcon />
           </IconButton>
           <IconButton
             className={classes.Buttons}
