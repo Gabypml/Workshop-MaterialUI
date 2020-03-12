@@ -19,6 +19,7 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import { Box } from "@material-ui/core";
 
 const Metronome = () => {
   const [beat, setBeat] = useState(100);
@@ -86,9 +87,6 @@ const Metronome = () => {
       width: "280px",
       color: "#D45D79"
     },
-    metronomeApp: {
-      padding: "25% 0 25%"
-    },
     divButtons: {
       margin: "0 140px"
     },
@@ -109,90 +107,92 @@ const Metronome = () => {
   const classes = useStyles();
 
   return (
-    <Grid container justify={"center"} className={classes.metronomeApp}>
-      <Grid className={classes.BPMBeat}>
-        <Typography>{beat}</Typography>
-        <span>BPM</span>
-      </Grid>
-      <Grid container justify={"center"} spacing={3}>
-        <Grid item xs={12}>
-          <Grid container justify={"center"}>
-            <Slider
-              className={classes.Slider}
-              valueLabelDisplay="auto"
-              value={beat}
-              min={0}
-              max={240}
-              onChange={handleSlider}
-              aria-labelledby="input-slider"
-            />
-          </Grid>
-        </Grid>
-        <Grid item xs={12}>
-          <Grid container justify={"center"}>
-            <IconButton
-              className={classes.Buttons}
-              aria-label="add"
-              onClick={handlePlus}
-            >
-              <AddCircleOutline />
-            </IconButton>
-            <IconButton
-              className={classes.Buttons}
-              aria-label="remove"
-              onClick={handleMinus}
-            >
-              <RemoveCircleOutline />
-            </IconButton>
-          </Grid>
-        </Grid>
-      </Grid>
-      <Grid item>
-        <Button
-          onClick={startStop}
-          className={classes.playButton}
-          color={"primary"}
-        >
-          <img
-            src={playing ? pause : play}
-            alt="play/pause"
-            style={{ height: "70px", width: "70px" }}
-          />
-        </Button>
-      </Grid>
+    <Box py={"35%"}>
       <Grid container justify={"center"}>
-        <Typography variant={"h4"}>Mesure</Typography>
+        <Grid className={classes.BPMBeat}>
+          <Typography>{beat}</Typography>
+          <span>BPM</span>
+        </Grid>
+        <Grid container justify={"center"} spacing={3}>
+          <Grid item xs={12}>
+            <Grid container justify={"center"}>
+              <Slider
+                className={classes.Slider}
+                valueLabelDisplay="auto"
+                value={beat}
+                min={0}
+                max={240}
+                onChange={handleSlider}
+                aria-labelledby="input-slider"
+              />
+            </Grid>
+          </Grid>
+          <Grid item xs={12}>
+            <Grid container justify={"center"}>
+              <IconButton
+                className={classes.Buttons}
+                aria-label="add"
+                onClick={handlePlus}
+              >
+                <AddCircleOutline />
+              </IconButton>
+              <IconButton
+                className={classes.Buttons}
+                aria-label="remove"
+                onClick={handleMinus}
+              >
+                <RemoveCircleOutline />
+              </IconButton>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item>
+          <Button
+            onClick={startStop}
+            className={classes.playButton}
+            color={"primary"}
+          >
+            <img
+              src={playing ? pause : play}
+              alt="play/pause"
+              style={{ height: "70px", width: "70px" }}
+            />
+          </Button>
+        </Grid>
+        <Grid container justify={"center"}>
+          <Typography variant={"h4"}>Mesure</Typography>
 
-        <MuiThemeProvider theme={theme}>
-          <ButtonGroup>
-            <Button
-              color="primary"
-              onClick={e => {
-                handlePulse(e, 2);
-              }}
-            >
-              DEUX
-            </Button>
-            <Button
-              color="primary"
-              onClick={e => {
-                handlePulse(e, 3);
-              }}
-            >
-              TROIS
-            </Button>
-            <Button
-              color="primary"
-              onClick={e => {
-                handlePulse(e, 4);
-              }}
-            >
-              QUATRE
-            </Button>
-          </ButtonGroup>
-        </MuiThemeProvider>
+          <MuiThemeProvider theme={theme}>
+            <ButtonGroup>
+              <Button
+                color="primary"
+                onClick={e => {
+                  handlePulse(e, 2);
+                }}
+              >
+                DEUX
+              </Button>
+              <Button
+                color="primary"
+                onClick={e => {
+                  handlePulse(e, 3);
+                }}
+              >
+                TROIS
+              </Button>
+              <Button
+                color="primary"
+                onClick={e => {
+                  handlePulse(e, 4);
+                }}
+              >
+                QUATRE
+              </Button>
+            </ButtonGroup>
+          </MuiThemeProvider>
+        </Grid>
       </Grid>
-    </Grid>
+    </Box>
   );
 };
 const theme = createMuiTheme({

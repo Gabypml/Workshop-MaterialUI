@@ -18,10 +18,10 @@ import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import Toolbar from "@material-ui/core/Toolbar";
-
 import Typography from "@material-ui/core/Typography";
-import SystemSpecs from "./SystemSpec";
 import Box from "@material-ui/core/Box";
+
+import SystemSpecs from "./SystemSpec";
 
 const theme = createMuiTheme({
   palette: {
@@ -75,19 +75,10 @@ const useStyles = makeStyles({
     marginTop: "80px",
     height: "80vh"
   },
-  paperNav: {
-    borderRadius: "30px",
-    backgroundColor: "#3D3D93",
-    marginRight: "50px",
-    minWidth: "300px",
-    width: "25vw"
-  },
   paperDisplay: {
     backgroundColor: "#3D3D93",
-    marginLeft: "50px",
     minWidth: "300px",
     borderRadius: "30px",
-
     width: "25vw"
   },
   center: {
@@ -104,18 +95,32 @@ function App() {
           <Grid item>
             <AppBar color={"secondary"} className={classes.headerTitle}>
               <Toolbar>
-                <Typography variant="h1" className={classes.title}>
-                  React + Electron ={" "}
-                </Typography>
-                <img src={loveImg} className={classes.imgLove} />
+                <Grid container justify={"center"}>
+                  <Typography variant="h1" className={classes.title}>
+                    React + Electron ={" "}
+                  </Typography>
+                  <img src={loveImg} className={classes.imgLove} />
+                </Grid>
               </Toolbar>
             </AppBar>
           </Grid>
+
           <Grid item xs={12}>
-            <main className={classes.mainApp}>
+            <Box
+              component={"main"}
+              display={"flex"}
+              mt={"80px"}
+              justifyContent={"center"}
+              height={"80vh"}
+            >
               <Router>
-                <Paper className={classes.paperNav} elevation={3}>
-                  <nav className={classes.mainNav}>
+                <Box
+                  component={Paper}
+                  className={classes.paperDisplay}
+                  mr={"50px"}
+                  elevation={3}
+                >
+                  <nav>
                     <Grid item>
                       <Box component={"div"} display={"flex"}>
                         <Button
@@ -134,13 +139,13 @@ function App() {
                         </Button>
                       </Box>
                     </Grid>
-                    <Grid item display={"flex"}>
+
+                    <Grid item>
                       <Box component={"div"} display={"flex"}>
                         <Button
                           variant={"outlined"}
                           color={"primary"}
                           className={classes.buttonNav}
-                          justify={"center"}
                         >
                           <Link to="/systemspec">
                             <Typography color={"primary"}>
@@ -156,17 +161,23 @@ function App() {
                       </Box>
                     </Grid>
                   </nav>
-                </Paper>
-                <Paper className={classes.paperDisplay}>
+                </Box>
+
+                <Box
+                  component={Paper}
+                  className={classes.paperDisplay}
+                  ml={"50px"}
+                  elevation={3}
+                >
                   <Route path="/metronome">
                     <Metronome />
                   </Route>
                   <Route path={"/systemspec"}>
                     <SystemSpecs />
                   </Route>
-                </Paper>
+                </Box>
               </Router>
-            </main>
+            </Box>
           </Grid>
         </Grid>
       </Paper>
