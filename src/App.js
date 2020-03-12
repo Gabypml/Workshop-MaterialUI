@@ -134,23 +134,26 @@ function App() {
                         </Button>
                       </Box>
                     </Grid>
-
                     <Grid item display={"flex"}>
-                      <Button
-                        variant={"outlined"}
-                        color={"primary"}
-                        className={classes.buttonNav}
-                        justify={"center"}
-                      >
-                        <Link to="/systemspec">
-                          <Typography color={"primary"}>SystemSpec</Typography>
-                          <img
-                            src={systemeImg}
-                            alt={"HEY"}
-                            className={classes.imgButton}
-                          />
-                        </Link>
-                      </Button>
+                      <Box component={"div"} display={"flex"}>
+                        <Button
+                          variant={"outlined"}
+                          color={"primary"}
+                          className={classes.buttonNav}
+                          justify={"center"}
+                        >
+                          <Link to="/systemspec">
+                            <Typography color={"primary"}>
+                              SystemSpec
+                            </Typography>
+                            <img
+                              src={systemeImg}
+                              alt={"HEY"}
+                              className={classes.imgButton}
+                            />
+                          </Link>
+                        </Button>
+                      </Box>
                     </Grid>
                   </nav>
                 </Paper>
