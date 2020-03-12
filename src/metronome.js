@@ -10,7 +10,7 @@ import { makeStyles } from "@material-ui/styles";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 import RemoveCircleOutline from "@material-ui/icons/RemoveCircleOutline";
-import AddCircleOutline from "@material-ui/icons/AddCircleOutline";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 
 import { lightBlue } from "@material-ui/core/colors";
 import Slider from "@material-ui/core/Slider";
@@ -88,7 +88,7 @@ const Metronome = () => {
       color: "#D45D79"
     },
     divButtons: {
-      margin: "0 140px"
+      margin: "0 2rem"
     },
     Buttons: {
       color: "#D45D79"
@@ -96,18 +96,24 @@ const Metronome = () => {
     playButton: {
       borderRadius: "50%",
       background: "linear-gradient(180deg, #41419d, #373784)",
-      boxShadow: "-7px 7px 14px #232355, 7px -7px 14px #5757d1"
+      boxShadow: "-7px 7px 14px #232355, 7px -7px 14px #5757d1",
+      marginTop: "2rem"
     },
     BPMBeat: {
-      border: "#5cff61 1px solid",
-      backgroundColor: "#202020"
+      border: "#D45D79 1px solid",
+      borderRadius: "25%",
+      fontSize: "1.5rem",
+      fontFamily: "helvetica",
+      color: "#ddd",
+      padding: "1rem",
+      marginBottom: "2rem"
     }
   });
 
   const classes = useStyles();
 
   return (
-    <Box py={"35%"}>
+    <Box py={"20%"}>
       <Grid container justify={"center"}>
         <Grid className={classes.BPMBeat}>
           <Typography>{beat}</Typography>
@@ -131,17 +137,17 @@ const Metronome = () => {
             <Grid container justify={"center"}>
               <IconButton
                 className={classes.Buttons}
-                aria-label="add"
-                onClick={handlePlus}
-              >
-                <AddCircleOutline />
-              </IconButton>
-              <IconButton
-                className={classes.Buttons}
                 aria-label="remove"
                 onClick={handleMinus}
               >
                 <RemoveCircleOutline />
+              </IconButton>
+              <IconButton
+                className={classes.Buttons}
+                aria-label="add"
+                onClick={handlePlus}
+              >
+                <AddCircleOutlineIcon />
               </IconButton>
             </Grid>
           </Grid>
@@ -160,8 +166,9 @@ const Metronome = () => {
           </Button>
         </Grid>
         <Grid container justify={"center"}>
-          <Typography variant={"h4"}>Mesure</Typography>
-
+          <Box component={Typography} color={"#ddd"} mt={"20px"} variant={"h5"}>
+            Mesure:
+          </Box>
           <MuiThemeProvider theme={theme}>
             <ButtonGroup>
               <Button
@@ -211,7 +218,8 @@ const theme = createMuiTheme({
   overrides: {
     MuiButton: {
       root: {
-        backgroundColor: "#d45d79"
+        backgroundColor: "#d45d79",
+        marginTop: "3rem"
       }
     }
   }
