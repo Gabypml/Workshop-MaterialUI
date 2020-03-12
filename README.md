@@ -9,7 +9,7 @@ Pour ce faire, nous allons effectuer avec vous un petit exercice de stylisation 
 
 1. [Installation](setup.md)
 2. [Stylisation d'App.js](app.md)
-3. [Stylisation du métronome](metronome.md)
+3. [Stylisation du métronome](slider.md)
 4. [Stylisation de systemspec](systemspec.md)
 
 [Let's go](setup.md) 😁
