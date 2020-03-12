@@ -35,8 +35,6 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles({
   headerTitle: {
-    display: "flex",
-    justifyContent: "center",
     width: "99%",
     margin: "0 7px 0 0"
   },
@@ -84,6 +82,7 @@ const useStyles = makeStyles({
     width: "25vw"
   },
   paperDisplay: {
+    backgroundColor: "rgba(48,51,93,1)",
     marginLeft: "50px",
     minWidth: "300px",
     width: "25vw"
@@ -122,7 +121,7 @@ function App() {
                         justify={"center"}
                       >
                         <Link to="/metronome">
-                          <LinkUI>Metronome</LinkUI>
+                          <Typography color={"primary"}>Metronome</Typography>
                           <img
                             src={metronomeImg}
                             className={classes.imgButton}
@@ -139,7 +138,7 @@ function App() {
                         justify={"center"}
                       >
                         <Link to="/systemspec">
-                          <LinkUI>SystemSpec</LinkUI>
+                          <Typography color={"primary"}>SystemSpec</Typography>
                           <img
                             src={systemeImg}
                             alt={"HEY"}
