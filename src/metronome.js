@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import useInterval from "./useInterval";
 
-import Button from "@material-ui/core/Button";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-import { sizing } from "@material-ui/system";
-import blue from "@material-ui/core/colors/blue";
-
 import soundFile1 from "./assets/click1.wav";
 import soundFile2 from "./assets/click2.wav";
 import play from "./assets/play.png";
 import pause from "./assets/pause.png";
 
 import { makeStyles } from "@material-ui/styles";
-import Slider from "@material-ui/core/Slider";
-import IconButton from "@material-ui/core/IconButton";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+
 import RemoveCircleOutline from "@material-ui/icons/RemoveCircleOutline";
 import AddCircleOutline from "@material-ui/icons/AddCircleOutline";
-import LightBlue from "@material-ui/core/colors/lightBlue";
+
 import { lightBlue } from "@material-ui/core/colors";
+import Slider from "@material-ui/core/Slider";
+import IconButton from "@material-ui/core/IconButton";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 
 const Metronome = () => {
   const [beat, setBeat] = useState(100);
@@ -47,8 +47,8 @@ const Metronome = () => {
   const handlePulse = (e, pulse) => {
     document
       .querySelectorAll("button.active")
-      .forEach(button => button.classList.remove("active"));
-    e.target.classList.add("active");
+      .forEach(button => button.classList.remove(classes.active));
+    e.target.classList.add(classes.active);
     setMeasure({ count: 0, pulse: pulse });
   };
 
@@ -84,62 +84,84 @@ const Metronome = () => {
   const useStyles = makeStyles({
     Slider: {
       width: "280px",
-      color: "#3D3D93",
-      margin: "0 50px"
+      color: "#D45D79"
+    },
+    metronomeApp: {
+      padding: "25% 0 25%"
     },
     divButtons: {
       margin: "0 140px"
     },
     Buttons: {
-      color: "#3D3D93"
+      color: "#D45D79"
     },
     playButton: {
-      height: "70px",
-      width: "70px"
+      borderRadius: "50%",
+      background: "linear-gradient(180deg, #41419d, #373784)",
+      boxShadow: "-7px 7px 14px #232355, 7px -7px 14px #5757d1"
+    },
+    BPMBeat: {
+      border: "#5cff61 1px solid",
+      backgroundColor: "#202020"
     }
   });
 
   const classes = useStyles();
 
   return (
-    <div>
-      <h3>{beat} BPM</h3>
-      <div>
-      <Slider
-          className={classes.Slider}
-          valueLabelDisplay="auto"
-          value={beat}
-          min={0}
-          max={240}
-          onChange={handleSlider}
-          aria-labelledby="input-slider"
-        />
-        <div className={classes.divButtons}>
-        <IconButton
-          className={classes.Buttons}
-          aria-label="remove"
-          onClick={handleMinus}
-        >
-          <RemoveCircleOutline />
-        </IconButton>
-        <IconButton
-          className={classes.Buttons}
-          aria-label="add"
-          onClick={handlePlus}
-        >
-          <AddCircleOutline />
-        </IconButton>
-        </div>
-      </div>
-      <Button onClick={startStop}>
-        <img
-          src={playing ? pause : play}
+    <Grid container justify={"center"} className={classes.metronomeApp}>
+      <Grid className={classes.BPMBeat}>
+        <Typography>{beat}</Typography>
+        <span>BPM</span>
+      </Grid>
+      <Grid container justify={"center"} spacing={3}>
+        <Grid item xs={12}>
+          <Grid container justify={"center"}>
+            <Slider
+              className={classes.Slider}
+              valueLabelDisplay="auto"
+              value={beat}
+              min={0}
+              max={240}
+              onChange={handleSlider}
+              aria-labelledby="input-slider"
+            />
+          </Grid>
+        </Grid>
+        <Grid item xs={12}>
+          <Grid container justify={"center"}>
+            <IconButton
+              className={classes.Buttons}
+              aria-label="add"
+              onClick={handlePlus}
+            >
+              <AddCircleOutline />
+            </IconButton>
+            <IconButton
+              className={classes.Buttons}
+              aria-label="remove"
+              onClick={handleMinus}
+            >
+              <RemoveCircleOutline />
+            </IconButton>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item>
+        <Button
+          onClick={startStop}
           className={classes.playButton}
-          alt="play/pause"
-        />
-      </Button>
-      <div>
-        <h4>Mesure : </h4>
+          color={"primary"}
+        >
+          <img
+            src={playing ? pause : play}
+            alt="play/pause"
+            style={{ height: "70px", width: "70px" }}
+          />
+        </Button>
+      </Grid>
+      <Grid container justify={"center"}>
+        <Typography variant={"h4"}>Mesure</Typography>
 
         <MuiThemeProvider theme={theme}>
           <ButtonGroup>
@@ -161,7 +183,6 @@ const Metronome = () => {
             </Button>
             <Button
               color="primary"
-              className="active"
               onClick={e => {
                 handlePulse(e, 4);
               }}
@@ -170,8 +191,8 @@ const Metronome = () => {
             </Button>
           </ButtonGroup>
         </MuiThemeProvider>
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   );
 };
 const theme = createMuiTheme({
