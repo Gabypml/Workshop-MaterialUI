@@ -91,6 +91,7 @@ const Metronome = () => {
     },
     divButtons: {
       margin: "0 140px"
+      
     },
     Buttons: {
       color: "#D45D79"
@@ -102,7 +103,12 @@ const Metronome = () => {
     },
     BPMBeat: {
       border: "#5cff61 1px solid",
-      backgroundColor: "#202020"
+      borderRadius:"25%",
+      fontSize:"1.5rem",
+      fontFamily:"helvetica",
+      color: "#D45D79",
+      padding:"1rem",
+      marginBottom:"2rem",
     }
   });
 
@@ -132,17 +138,19 @@ const Metronome = () => {
           <Grid container justify={"center"}>
             <IconButton
               className={classes.Buttons}
-              aria-label="add"
-              onClick={handlePlus}
-            >
-              <AddCircleOutlineIcon />
-            </IconButton>
-            <IconButton
-              className={classes.Buttons}
               aria-label="remove"
               onClick={handleMinus}
             >
               <RemoveCircleOutline />
+            
+            </IconButton>
+            <IconButton
+              className={classes.Buttons}
+              aria-label="add"
+              onClick={handlePlus}
+            >
+              <AddCircleOutlineIcon />
+              
             </IconButton>
           </Grid>
         </Grid>
