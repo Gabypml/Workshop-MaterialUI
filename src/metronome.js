@@ -90,7 +90,8 @@ const Metronome = () => {
       padding: "25% 0 25%"
     },
     divButtons: {
-      margin: "0 140px"
+      margin: "0 2rem",
+      
       
     },
     Buttons: {
@@ -99,7 +100,8 @@ const Metronome = () => {
     playButton: {
       borderRadius: "50%",
       background: "linear-gradient(180deg, #41419d, #373784)",
-      boxShadow: "-7px 7px 14px #232355, 7px -7px 14px #5757d1"
+      boxShadow: "-7px 7px 14px #232355, 7px -7px 14px #5757d1",
+      marginTop:"2rem"
     },
     BPMBeat: {
       border: "#5cff61 1px solid",
@@ -109,7 +111,8 @@ const Metronome = () => {
       color: "#D45D79",
       padding:"1rem",
       marginBottom:"2rem",
-    }
+    },
+    
   });
 
   const classes = useStyles();
@@ -169,9 +172,11 @@ const Metronome = () => {
         </Button>
       </Grid>
       <Grid container justify={"center"}>
-        <Typography variant={"h4"}>Mesure</Typography>
 
-        <MuiThemeProvider theme={theme}>
+      <MuiThemeProvider theme={theme}>
+      <Typography className={classes.typ} variant={"h5"}>Mesure</Typography>
+
+        
           <ButtonGroup>
             <Button
               color="primary"
@@ -215,11 +220,13 @@ const theme = createMuiTheme({
   typography: {
     fontSize: 20,
     fontFamily: "Arial, Helvetica"
+    
   },
   overrides: {
     MuiButton: {
       root: {
-        backgroundColor: "#d45d79"
+        backgroundColor: "#d45d79",
+        marginTop:"3rem"
       }
     }
   }
